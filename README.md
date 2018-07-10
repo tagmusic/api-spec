@@ -22,3 +22,23 @@
 ```
 {"status": "success", "messaged": "logged out"}
 ```
+
+### 메인페이지
+#### Imo Chart
+```
+/api/<version>/musicChart/<type>/<subtype>?range=<intVal>
+```
+* type: imo, 리스트
+* subtype: recent, 리스트
+* range: 뭐하는 놈인지 설명
+* Return value
+```
+{
+"status": "success", 
+"data": [{"album": "aaa", "albumartist", "",  "artist": "", "bitrate": "", "genre": "jazz"}, {}]
+}
+```
+#### World Chart nameList
+```
+/api/<version>/code/<code_type>/<sub_type>
+```
