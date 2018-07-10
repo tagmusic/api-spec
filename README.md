@@ -3,6 +3,7 @@
 
 ```
 songs
+----chart
 ----playlist
 ----played
 ----artist
