@@ -1,5 +1,5 @@
-# api-spec
-Current Version info : 0.1
+# tagmusic api spec for app
+* Current Version: v0.1
 
 ### LOGIN
 *소셜 로그인후 provider가 제공하는 유저정보를 넘김*
