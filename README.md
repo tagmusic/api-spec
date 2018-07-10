@@ -31,6 +31,7 @@
 * type: imo, 리스트
 * subtype: recent, 리스트
 * range: 뭐하는 놈인지 설명
+
 * Return value
 ```
 {
