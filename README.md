@@ -2,8 +2,8 @@
 Current Version info : 0.1
 
 ## LOGIN
-method = POST
-
+* method = POST
+```
 /api/<version>/user/login
-
 {"certified_key": "", "provider": ""}
+```
