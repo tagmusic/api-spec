@@ -117,6 +117,21 @@
 "data": [?]
 }
 ```
+#### Playlist 제목 수정
+*플레이 리스트에 대한 제목 수정 요청*
+* method: PUT
+```
+/api/{version}/playlist/{playlist_no}
+```
+* playlist_no:수정할 playlist_no int value
+
+* Return value
+```
+{
+"status": 200, 
+"data": [?]
+}
+```
 #### Playlist 삭제
 *플레이 리스트에 대한 삭제 요청*
 * method: DELETE
@@ -161,11 +176,37 @@
          }
 }
 ```
-#### Playlist 생성
-*플레이 리스트에 대한 삭제 요청*
+#### 플레이 리스트 재생 목록에 추가
+*플레이 리스트의 음악 리스트를 재생 목록에 추가 *
 * method: PUT
 ```
+/api/{version}/play
+```
+* Return value
+```
+{
+"status": "success", 
+"data": [?]
+}
+```
+#### Playlist 생성
+*플레이 리스트에 대한 삭제 요청*
+* method: POST
+```
 /api/{version}/playlist
+```
+* Return value
+```
+{
+"status": "success", 
+"data": [?]
+}
+```
+#### Playlist 공유하기
+*플레이 리스트에 대한 공유 요청*
+* method: ?
+```
+/api/{version}/playlist/share
 ```
 * Return value
 ```
@@ -304,6 +345,32 @@
 "data": {"artist":"test","lyric":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","title":"test","pid":"1","duration":225}
 }
 ```
+#### 음악 공유하기
+*음악에 대한 공유 요청*
+* method: ?
+```
+/api/{version}/music/share
+```
+* Return value
+```
+{
+"status": "success", 
+"data": [?]
+}
+```
+#### playList에 추가하기
+*해당 음악 playlist에 추가하기*
+* method: PUT
+```
+/api/{version}/playlist/{playlist_no}
+```
+* Return value
+```
+{
+"status": "success", 
+"data": [?]
+}
+```
 #### 창작자보기
 *창작자 상세 보기*
 *method: GET
@@ -359,7 +426,6 @@
  "status": 200, 
  "data": {?}
 ```
-
 ### 검색
 #### 검색 완료
 *검색 완료*
