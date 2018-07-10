@@ -2,15 +2,15 @@
 * Current Version: v0.1
 
 ### LOGIN
-*소셜 로그인후 provider가 제공하는 유저정보를 넘김*
+*APP에서 소셜 로그인후 provider가 제공하는 유저정보를 넘김*
 * method: POST
 ```
 /api/{version}/user/login
-{"provider": "facebook", "data": {"certified_key": "xxxx", "id": "tagmusic"}}
+{"provider": "twitter", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0"}}
 ```
 * Return value
 ```
-{"status": 200, "user_key": "1234", "messaged": "logged in"}
+{"status": 200, "user_key": "1234", "messaged": "logged in", "token": "abcdefzzzzz"}
 ```
 
 ### LOGOUT
