@@ -11,7 +11,7 @@ songs
 ----sponsor
 ```
 
-### [POST] LOGIN
+### [POST] 로그인
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 *sample 확인
 ```
@@ -21,19 +21,19 @@ songs
 * Return value
 * jwt token이 header로 날라가거나, return value의 json 포맷으로.. 확인
 ```
-{"status": 200, "user_key": "1234", "messaged": "logged in", "token": "abcdefzzzzz"}
+{"status": 200, "user_key": "1234", "message": "logged in", "token": "abcdefzzzzz"}
 ```
 
-### [DELETE] LOGOUT
+### [DELETE] 로그아웃
 ```
 /api/{version}/user/logout
 ```
 * Return value
 ```
-{"status": 200, "messaged": "logged out"}
+{"status": 200, "message": "logged out"}
 ```
 
-### 메인페이지
+### 챠트
 #### [GET] Chart Menus
 *차트 메뉴 리스트*
 * imo, world, korea, vietnam, .... 과 같은 차트 속성, default: imo
@@ -70,7 +70,7 @@ songs
 }
 ```
 
-### PLAY LIST
+### 플레이리스트
 #### [GET] Playlist 목록
 *플레이 리스트 페이지에서 로그인한 유저에 대한 목록을 뿌려줌*
 ```
@@ -259,7 +259,152 @@ id=123
 *playlist 참조*
 
 
+### 검색
+#### 검색 완료
+*검색 완료*
+* method: GET
+```
+/api/{version}/search?{search_type,search_value}
+```
+* search_type : song, artist... 어떤 값을 검색할지에 대한 type string value
+* search_value : 검색어 string value
 
+* Return value
+```
+{
+"status": 200, 
+"data": {"artist":"test","cover":"img","title":"test","pid":"1","duration":225}
+}
+```
+
+
+### 프로필
+#### [GET] 개인 프로필
+*개인 프로필 조회에 따른 데이터 요청*
+```
+/api/{version}/{me,id}
+```
+* Return value
+```
+{
+"status": 200, 
+"data": {"name":"test","point":1500,"pid":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10}
+}
+```
+#### 나의 작품 목록(창작자)
+*개인 프로필 조회에 따른 개인 작품 목록 요청*
+* method: GET
+```
+/api/{version}/me/song
+```
+* Return value
+```
+{"status": 200, 
+ "data": {
+            "song_list":[{
+                            "artist":"test",
+                            "cover":"img",
+                            "title":"test",
+                            "pid":1,
+                            "play_cnt":100
+                           }, {
+                           "artist":"test",
+                           "cover":"img",
+                           "title":"test",
+                           "pid":2,
+                           "play_cnt":100                           
+                          }],
+         }
+}
+```
+#### 나의 후원자 목록
+*개인 프로필 조회에 따른 개인 후원자 목록 요청*
+* method: GET
+```
+/api/{version}/{me, id}/sponsor
+```
+* Return value
+```
+{"status": 200, 
+ "data": {
+            "sponsor_list":[{
+                            "name":"test",
+                            "point":5,
+                            "pid":1,
+                            "date":"2018-01-01"
+                           }, {
+                            "name":"test",
+                            "point":5,
+                            "pid":1,
+                            "date":"2018-01-01"                          
+                          }],
+         }
+}
+```
+#### 내가 후원한 목록
+*개인 프로필 조회에 따른 개인 후원 목록 요청*
+* method: GET
+```
+/api/{version}/{me, id}/support
+```
+* Return value
+```
+{"status": 200, 
+ "data": {
+            "support_list":[{
+                            "name":"test",
+                            "point":5,
+                            "pid":1,
+                            "date":"2018-01-01"
+                           }, {
+                            "name":"test",
+                            "point":5,
+                            "pid":1,
+                            "date":"2018-01-01"                          
+                          }],
+         }
+}
+```
+#### 개인 포인트 목록 요청
+*개인 포인트 사용 목록 요청*
+* method: GET
+```
+/api/{version}/{me, id}/point
+```
+* Return value
+```
+{"status": 200, 
+ "data": {
+            "point_list":[{
+                            "name":"test",
+                            "point":5,
+                            "type":"sponsor"
+                            "pid":1,
+                            "date":"2018-01-01"
+                           }, {
+                            "name":"test",
+                            "type":"support"
+                            "point":5,
+                            "pid":1,
+                            "date":"2018-01-01"                          
+                          }],
+         }
+}
+```
+#### 포인트 후원
+*개인 포인트 후원에 따른 후원*
+* method: PUT
+```
+/api/{version}/support/{user_id}
+```
+* pid : 클릭한 user의 해당하는 int value
+
+* Return value
+```
+{"status": 200, 
+ "data": {?}
+}
+```
 
 
 ### 공지사항
@@ -344,233 +489,5 @@ id=123
 {
 "status": 200, 
 "data": [{"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}]
-}
-```
-
-#### 재생 목록 편집
-*재생 목록에서 노래를 추가하거나 제거한다*
-* method: PUT
-```
-/api/{version}/play
-```
-* Return value
-```
-{
- "status": 200, 
- "data": {?}
-```
-### 검색
-#### 검색 완료
-*검색 완료*
-* method: GET
-```
-/api/{version}/search/{search_type}?{search_value}
-```
-* search_type : song, artist... 어떤 값을 검색할지에 대한 type string value
-* search_value : 검색어 string value
-
-* Return value
-```
-{
-"status": 200, 
-"data": {"artist":"test","cover":"img","title":"test","pid":"1","duration":225}
-}
-```
-### 유저프로필(자신)
-#### 개인 프로필 요청
-*개인 프로필 조회에 따른 데이터 요청*
-* method: GET
-```
-/api/{version}/myinfo
-```
-* Return value
-```
-{
-"status": 200, 
-"data": {"name":"test","point":1500,"pid":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10}
-}
-```
-#### 개인 작품 목록 요청
-*개인 프로필 조회에 따른 개인 작품 목록 요청*
-* method: GET
-```
-/api/{version}/myinfo/song
-```
-* Return value
-```
-{"status": 200, 
- "data": {
-            "song_list":[{
-                            "artist":"test",
-                            "cover":"img",
-                            "title":"test",
-                            "pid":1,
-                            "play_cnt":100
-                           }, {
-                           "artist":"test",
-                           "cover":"img",
-                           "title":"test",
-                           "pid":2,
-                           "play_cnt":100                           
-                          }],
-         }
-}
-```
-#### 개인 후원자 목록 요청
-*개인 프로필 조회에 따른 개인 후원자 목록 요청*
-* method: GET
-```
-/api/{version}/myinfo/sponsor
-```
-* Return value
-```
-{"status": 200, 
- "data": {
-            "sponsor_list":[{
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
-}
-```
-#### 개인 후원 목록 요청
-*개인 프로필 조회에 따른 개인 후원 목록 요청*
-* method: GET
-```
-/api/{version}/myinfo/support
-```
-* Return value
-```
-{"status": 200, 
- "data": {
-            "support_list":[{
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
-}
-```
-#### 개인 포인트 목록 요청
-*개인 포인트 사용 목록 요청*
-* method: GET
-```
-/api/{version}/myinfo/point
-```
-* Return value
-```
-{"status": 200, 
- "data": {
-            "point_list":[{
-                            "name":"test",
-                            "point":5,
-                            "type":"sponsor"
-                            "pid":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "type":"support"
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
-}
-```
-### 유저프로필(타인)
-#### 개인 프로필 요청
-*개인 프로필 조회에 따른 데이터 요청*
-* method: GET
-```
-/api/{version}/user/info/{pid}
-```
-* pid : 클릭한 user의 해당하는 int value
-
-* Return value
-```
-{
-"status": 200, 
-"data": {"name":"test","pid":1,"sponsor_cnt":100, "song_cnt":10}
-}
-```
-#### 개인 작품 목록 요청
-*개인 프로필 조회에 따른 개인 작품 목록 요청*
-* method: GET
-```
-/api/{version}/user/song/{pid}
-```
-* pid : 클릭한 user의 해당하는 int value
-
-* Return value
-```
-{"status": 200, 
- "data": {
-            "song_list":[{
-                            "artist":"test",
-                            "cover":"img",
-                            "title":"test",
-                            "pid":1,
-                            "play_cnt":100
-                           }, {
-                           "artist":"test",
-                           "cover":"img",
-                           "title":"test",
-                           "pid":2,
-                           "play_cnt":100                           
-                          }],
-         }
-}
-```
-#### 개인 후원자 목록 요청
-*개인 프로필 조회에 따른 개인 후원자 목록 요청*
-* method: GET
-```
-/api/{version}/user/sponsor/{pid}
-```
-* pid : 클릭한 user의 해당하는 int value
-
-* Return value
-```
-{"status": 200, 
- "data": {
-            "sponsor_list":[{
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "point":5,
-                            "pid":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
-}
-```
-#### 개인 포인트 후원
-*개인 포인트 후원에 따른 후원*
-* method: PUT
-```
-/api/{version}/user/support/{pid}
-```
-* pid : 클릭한 user의 해당하는 int value
-
-* Return value
-```
-{"status": 200, 
- "data": {?}
 }
 ```
