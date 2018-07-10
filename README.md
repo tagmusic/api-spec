@@ -217,7 +217,7 @@
 ```
 #### 창작자보기
 *창작자 상세 보기*
-*method: GET
+* method: GET
 ```
 /api/{version}/artist/{user_no}
 ```
