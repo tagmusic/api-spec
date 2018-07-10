@@ -10,7 +10,7 @@
 ```
 * Return value
 ```
-{"status": "success", "user_key": "1234", "messaged": "log in"}
+{"status": "success", "user_key": "1234", "messaged": "logged in"}
 ```
 
 ### LOGOUT
@@ -20,5 +20,5 @@
 ```
 * Return value
 ```
-{"status": "success", "messaged": "log out"}
+{"status": "success", "messaged": "logged out"}
 ```
