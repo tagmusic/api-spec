@@ -13,15 +13,14 @@ songs
 
 ### [POST] 로그인
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
-*sample 확인
 ```
 /api/{version}/user/login
-{"provider": "twitter", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0"}}
+{"provider": "twitter", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
 ```
 * Return value
-* jwt token이 header로 날라가거나, return value의 json 포맷으로.. 확인
+* userID로 JWT생성, JWT값은 access_token으로 보내준다.
 ```
-{"status": 200, "user_key": "1234", "message": "logged in", "token": "abcdefzzzzz"}
+{"status": 200, "user_key": "1234", "message": "logged in", "access_token": "abcdefzzzzz"}
 ```
 
 ### [DELETE] 로그아웃
