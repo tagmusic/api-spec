@@ -11,8 +11,9 @@ songs
 ----sponsor
 ```
 
-### 인증
-*로그인을 제외한 모든 request는 header 다음의 access_token이 전달되어야 함.
+### 인증(공통)
+*로그인을 제외한 모든 request는 header에 다음의 access_token이 포함되어야 함.
+
 *로그인시 response로 리턴된 유저 인증 토큰
 ```
 Authorization: Bearer <access_token>
