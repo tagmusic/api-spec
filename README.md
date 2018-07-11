@@ -58,7 +58,7 @@ Authorization: Bearer <access_token>
 #### [GET] Chart LIST
 *차트에 딸린 음악 리스트*
 ```
-/api/{version}/musicChart/{chart_id}?{page, page_count, sort}
+/api/{version}/chart/{chart_id}?{page, page_count, sort}
 ```
 * chart_id: chart menu id, default: 1(imo)
 * page_count: 리스트 개수, int, default: 10
