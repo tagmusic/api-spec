@@ -11,6 +11,13 @@ songs
 ----sponsor
 ```
 
+### 인증
+*로그인을 제외한 모든 request는 header 다음의 access_token이 전달되어야 함.
+*로그인시 response로 리턴된 유저 인증 토큰
+```
+Authorization: Bearer <access_token>
+```
+
 ### [POST] 로그인
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
