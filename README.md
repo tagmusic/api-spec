@@ -310,7 +310,6 @@ Authorization: Bearer <access_token>
 ```
 * id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
 
-```
 * Return value
 ```
 {
