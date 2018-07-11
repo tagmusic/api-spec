@@ -18,6 +18,23 @@ songs
 ```
 Authorization: Bearer <access_token>
 ```
+### 인증(에러)
+*토큰을 이용한 접근시 발생할 수 있는 에러 상황 정리 
+#### 만료된 토큰을 이용한 접근(expired_token)
+#Return Value
+```
+{"status":401, "message":"Token has expired"}
+```
+#### 부정확한 토큰을 이용한 접근(invalid_token)
+#Return Value
+```
+{"status":422, "message":"{error description:>어떤 이유로 잘못되었는지에 대한 메세지}"}
+```
+#### 인증헤더가 존재하지 않는 접근(unauthorized)
+#Return Value
+```
+{"status":401, "message":"Missing Authorization Header"}
+```
 
 ### [POST] 로그인
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
