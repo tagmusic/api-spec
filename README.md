@@ -49,7 +49,6 @@ songs
 
 #### [GET] Chart LIST
 *차트에 딸린 음악 리스트*
-* method: GET
 ```
 /api/{version}/musicChart/{chart_id}?{page, page_count, sort}
 ```
@@ -182,9 +181,8 @@ songs
 ```
 
 ### 재생목록
-#### 재생 목록 보기
+#### [GET] 재생 목록 보기
 *재생 목록*
-* method: GET
 ```
 /api/{version}/played
 ```
@@ -239,9 +237,8 @@ id=123
 
 
 ### 음악
-#### 음악 상세
+#### [GET] 음악 상세
 *음악 상세 요청*
-* method: GET
 ```
 /api/{version}/song/{id}
 ```
