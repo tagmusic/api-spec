@@ -114,7 +114,7 @@ Authorization: Bearer <access_token>
 }
 ```
 #### [POST] Playlist 등록/수정
-*플레이 리스트에 대한 수정사항 요청*
+*플레이리스트에 대한 수정사항 요청*
 ```
 /api/{version}/playlist/{id}
 {"title": "lovely lovely", "user_id": 123}
@@ -134,7 +134,7 @@ Authorization: Bearer <access_token>
 }
 ```
 #### [DELETE] Playlist 삭제
-*플레이 리스트에 대한 삭제 요청*
+*플레이리스트에 대한 삭제 요청*
 ```
 /api/{version}/playlist/{id}
 ```
@@ -149,7 +149,7 @@ Authorization: Bearer <access_token>
 ```
 
 #### [POST] Playlist에 곡 추가
-*플레이 리스트에 곡을 추가*
+*플레이리스트에 곡을 추가*
 ```
 /api/{version}/playlist/{id}
 [{"song_id": 1234}, ...]
@@ -163,7 +163,7 @@ Authorization: Bearer <access_token>
 ```
 
 #### [DELETE] Playlist에서 곡 삭제
-*플레이 리스트에 곡을 삭제*
+*플레이리스트에 곡을 삭제*
 ```
 /api/{version}/playlist/{id}
 [{"song_id": 1234}, ...]
@@ -178,7 +178,7 @@ Authorization: Bearer <access_token>
 ```
 
 #### [GET] Playlist 곡 보기
-*플레이 리스트 목록에서 하나의 플레이리스트에 대한 곡 정보 요청*
+*플레이리스트 목록에서 하나의 플레이리스트에 대한 곡 정보 요청*
 ```
 /api/{version}/playlist/{id}
 ```
@@ -235,7 +235,7 @@ Authorization: Bearer <access_token>
 ```
 
 #### [POST] 재생 목록에 추가
-*플레이 리스트의 음악 리스트를 재생 목록에 추가 *
+*플레이리스트의 음악 리스트를 재생 목록에 추가*
 ```
 /api/{version}/played
 {"playlist_id": 1234}
