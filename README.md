@@ -45,7 +45,7 @@ Authorization: Bearer <access_token>
 *차트 메뉴 리스트*
 * imo, world, korea, vietnam, .... 과 같은 차트 속성, default: imo
 ```
-/api/{version}/charts/
+/api/{version}/charts
 ```
 * Return value
 ```
@@ -72,7 +72,7 @@ Authorization: Bearer <access_token>
 "status": 200, 
 "id": 1,
 "name": "imo",
-"data": [{"id", 1, "album": "aaa", "albumartist", "",  "artist": "", "bitrate": "", "genre": "jazz"}, {}]
+"data": [{"id", 1, "title": "aaa", "artist": "bbb","cover":"img1.jpg", "filepath":"/img/song/", "bitrate": "", "genre": "jazz", "rank":"1"}, {}]
 }
 ```
 
@@ -112,7 +112,7 @@ Authorization: Bearer <access_token>
           "id": 1
           "user_id": 12
           "title":"lovely",
-          "count":12
+          "count":0
           }]
 }
 ```
@@ -146,10 +146,11 @@ Authorization: Bearer <access_token>
 ```
 
 #### [DELETE] Playlist에서 곡 삭제
-*플레이 리스트에 곡을 추가*
+*플레이 리스트에 곡을 삭제*
 ```
 /api/{version}/playlist/{id}
 [{"song_id": 1234}, ...]
+
 ```
 * Return value
 ```
@@ -175,15 +176,15 @@ Authorization: Bearer <access_token>
                             "artist":"test",
                             "cover":"img",
                             "title":"test",
-                            "pid":1
+                            "song_id":1
                            }, {"artist":"test",
                            "cover":"img",
                            "title":"test",
-                           "pid":1
+                           "song_id":2
                           }],
-           "playList_no":1,
-           "playlist_name":"test",
-           "repeat_yn":"Y"
+           "id":1,
+           "title":"test",
+           "user_id":1
          }
 }
 ```
@@ -220,17 +221,17 @@ Authorization: Bearer <access_token>
 *플레이 리스트의 음악 리스트를 재생 목록에 추가 *
 ```
 /api/{version}/played
-id=123
+{"playlist_id": 1234}
 ```
 * Return value
 ```
 {
-"status": "success", 
-"data": [?]
+"status": 200, 
+"message": "success"
 }
 ```
 #### [DELETE] 재생목록에서 곡 삭제
-*삭제*
+*재생목록에서 선택된 곡 삭제*
 ```
 /api/{version}/played
 [{"song_id": 1234}, ...]
@@ -264,9 +265,8 @@ id=123
 
 
 ### 검색
-#### 검색 완료
+#### [GET]검색 완료
 *검색 완료*
-* method: GET
 ```
 /api/{version}/search?{search_type,search_value}
 ```
@@ -277,7 +277,7 @@ id=123
 ```
 {
 "status": 200, 
-"data": {"artist":"test","cover":"img","title":"test","pid":"1","duration":225}
+"data": [{"artist":"test","cover":"img","title":"test","pid":"1","duration":225},...]
 }
 ```
 
@@ -292,12 +292,11 @@ id=123
 ```
 {
 "status": 200, 
-"data": {"name":"test","point":1500,"pid":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10}
+"data": {"name":"test","points":1500,"pid":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10, "rank":2}
 }
 ```
-#### 나의 작품 목록(창작자)
+#### [GET]나의 작품 목록(창작자)
 *개인 프로필 조회에 따른 개인 작품 목록 요청*
-* method: GET
 ```
 /api/{version}/me/song
 ```
@@ -321,9 +320,8 @@ id=123
          }
 }
 ```
-#### 나의 후원자 목록
+#### [GET]나의 후원자 목록
 *개인 프로필 조회에 따른 개인 후원자 목록 요청*
-* method: GET
 ```
 /api/{version}/{me, id}/sponsor
 ```
@@ -345,9 +343,8 @@ id=123
          }
 }
 ```
-#### 내가 후원한 목록
+#### [GET]내가 후원한 목록
 *개인 프로필 조회에 따른 개인 후원 목록 요청*
-* method: GET
 ```
 /api/{version}/{me, id}/support
 ```
@@ -369,9 +366,8 @@ id=123
          }
 }
 ```
-#### 개인 포인트 목록 요청
+#### [GET]개인 포인트 목록 요청
 *개인 포인트 사용 목록 요청*
-* method: GET
 ```
 /api/{version}/{me, id}/point
 ```
@@ -381,45 +377,44 @@ id=123
  "data": {
             "point_list":[{
                             "name":"test",
-                            "point":5,
+                            "points":5,
                             "type":"sponsor"
                             "pid":1,
                             "date":"2018-01-01"
                            }, {
                             "name":"test",
                             "type":"support"
-                            "point":5,
+                            "points":5,
                             "pid":1,
                             "date":"2018-01-01"                          
                           }],
          }
 }
 ```
-#### 포인트 후원
+#### [PUT]포인트 후원
 *개인 포인트 후원에 따른 후원*
-* method: PUT
 ```
 /api/{version}/support/{user_id}
+{"points":10}
 ```
 * pid : 클릭한 user의 해당하는 int value
 
 * Return value
 ```
 {"status": 200, 
- "data": {?}
+ "message": "success"
 }
 ```
 
 
 ### 공지사항
-####  공지사항 목록
+#### [GET]공지사항 목록
 *공지사항 목록 요청*
-* method: GET
 ```
-/api/{version}/notice?{range,page}
+/api/{version}/notice?{page_count,page}
 ```
-* range: 리스트 개수에 대한 int value
-* page : 현재 페이지에 대한 int value
+* page_count: 리스트 개수, int, default: 10
+* page : 현재 페이지, int, default: 0
 
 * Return value
 ```
@@ -438,9 +433,8 @@ id=123
          }]
 }
 ```
-#### 공지사항 상세
+#### [GET]공지사항 상세
 *공지사항 상세 요청*
-* method: GET
 ```
 /api/{version}/notice/{notice_no}
 ```
@@ -450,18 +444,17 @@ id=123
 ```
 {
 "status": 200, 
-"data": [{"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}]
+"data": {"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}
 }
 ```
 ### 이벤트
-####  이벤트 목록
+#### [GET]이벤트 목록
 *이벤트 목록 요청*
-* method: GET
 ```
-/api/{version}/event?{range,page}
+/api/{version}/event?{page_count,page}
 ```
-* range: 리스트 개수에 대한 int value
-* page : 현재 페이지에 대한 int value
+* page_count: 리스트 개수, int, default: 10
+* page : 현재 페이지, int, default: 0
 
 * Return value
 ```
@@ -480,9 +473,8 @@ id=123
          }]
 }
 ```
-#### 이벤트 상세
+#### [GET]이벤트 상세
 *이벤트 상세 요청*
-* method: GET
 ```
 /api/{version}/event/{event_no}
 ```
@@ -492,6 +484,20 @@ id=123
 ```
 {
 "status": 200, 
-"data": [{"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}]
+"data": {"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}
+}
+```
+### 작품
+#### [POST]작품 올리기
+*자신의 작품 올리기*
+```
+/api/{version}/song
+{"title":"aaa", "file":"aaa.mp3", "cover":"bbb.jpg", "desc":"really Good Soung"}
+```
+* Return value
+```
+{
+"status": 200, 
+"message": "success"
 }
 ```
