@@ -97,7 +97,7 @@ Authorization: Bearer <access_token>
 #### [GET] Playlist 목록
 *플레이 리스트 페이지에서 로그인한 유저에 대한 목록을 뿌려줌*
 ```
-/api/{version}/playlist?{page, page_count, sort}
+/api/{version}/playlist?{page, page_count}
 ```
 * page_count: 리스트 개수, int, default: 10
 * page : 현재 페이지, int, default: 0
@@ -125,12 +125,12 @@ Authorization: Bearer <access_token>
 ```
 {
 "status": 200, 
-"data": [{
+"data": {
           "id": 1
           "user_id": 12
           "title":"lovely",
           "count":0
-          }]
+          }
 }
 ```
 #### [DELETE] Playlist 삭제
@@ -138,7 +138,7 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/playlist/{id}
 ```
-* id:삭제할 playlist_no int value
+* id:삭제할 playlist id, int
 
 * Return value
 ```
@@ -154,6 +154,8 @@ Authorization: Bearer <access_token>
 /api/{version}/playlist/{id}
 [{"song_id": 1234}, ...]
 ```
+* id:곡이 추가될 playlist id, int
+
 * Return value
 ```
 {
@@ -167,7 +169,8 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/playlist/{id}
 [{"song_id": 1234}, ...]
-
+* id:곡이 삭제될 playlist id, int
+* [{"song_id": 1234},...] 해당 값이 존재할 경우 플레이리스트에 속해있는 곡 삭제
 ```
 * Return value
 ```
@@ -182,7 +185,7 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/playlist/{id}
 ```
-* id:상세 정보를 요청할 playlist_no int value
+* id:상세 정보를 요청할 playlist_no, int
 
 * Return value
 ```
@@ -268,7 +271,7 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/song/{id}
 ```
-* pid:음악 상세 정보를 요청할 pid int value
+* pid:음악 상세 정보를 요청할 pid, int
 
 * Return value
 ```
@@ -287,8 +290,8 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/search?{search_type,search_value}
 ```
-* search_type : song, artist... 어떤 값을 검색할지에 대한 type string value
-* search_value : 검색어 string value
+* search_type : song, artist... 어떤 값을 검색할지에 대한 type, string, default:song
+* search_value : 검색어, string
 
 * Return value
 ```
@@ -304,6 +307,9 @@ Authorization: Bearer <access_token>
 *개인 프로필 조회에 따른 데이터 요청*
 ```
 /api/{version}/{me,id}
+```
+* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
+
 ```
 * Return value
 ```
@@ -342,6 +348,8 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/{me, id}/sponsor
 ```
+* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
+
 * Return value
 ```
 {"status": 200, 
@@ -365,6 +373,8 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/{me, id}/support
 ```
+* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), string or int
+
 * Return value
 ```
 {"status": 200, 
@@ -388,6 +398,8 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/{me, id}/point
 ```
+* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), string or int
+
 * Return value
 ```
 {"status": 200, 
@@ -411,10 +423,10 @@ Authorization: Bearer <access_token>
 #### [PUT]포인트 후원
 *개인 포인트 후원에 따른 후원*
 ```
-/api/{version}/support/{user_id}
+/api/{version}/support/{id}
 {"points":10}
 ```
-* pid : 클릭한 user의 해당하는 int value
+* id : 후원 받는 유저에 pid, int
 
 * Return value
 ```
@@ -453,9 +465,9 @@ Authorization: Bearer <access_token>
 #### [GET]공지사항 상세
 *공지사항 상세 요청*
 ```
-/api/{version}/notice/{notice_no}
+/api/{version}/notice/{id}
 ```
-* notice_no:상세 정보를 요청할 notice_no int value
+* id:상세 정보를 요청할 id, int
 
 * Return value
 ```
@@ -493,9 +505,9 @@ Authorization: Bearer <access_token>
 #### [GET]이벤트 상세
 *이벤트 상세 요청*
 ```
-/api/{version}/event/{event_no}
+/api/{version}/event/{id}
 ```
-* event_no:상세 정보를 요청할 event_no int value
+* id:상세 정보를 요청할 id, int
 
 * Return value
 ```
