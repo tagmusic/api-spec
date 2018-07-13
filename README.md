@@ -225,11 +225,11 @@ Authorization: Bearer <access_token>
                             "artist":"test",
                             "cover":"img",
                             "title":"test",
-                            "pid":1
+                            "song_id":1
                            }, {"artist":"test",
                            "cover":"img",
                            "title":"test",
-                           "pid":1
+                           "song_id":1
                           }],
            "user_no":1,
            "repeat_yn":"Y"
@@ -277,7 +277,7 @@ Authorization: Bearer <access_token>
 ```
 {
 "status": 200, 
-"data": {"artist":"test","cover":"img","title":"test","pid":"1","duration":225, "lyric": "lydkdkdkdkdk"}
+"data": {"artist":"test","cover":"img","title":"test","song_id":"1","duration":225, "lyric": "lydkdkdkdkdk"}
 }
 ```
 #### playList에 추가하기
@@ -297,7 +297,7 @@ Authorization: Bearer <access_token>
 ```
 {
 "status": 200, 
-"data": [{"artist":"test","cover":"img","title":"test","pid":"1","duration":225},...]
+"data": [{"artist":"test","cover":"img","title":"test","song":"1","duration":225},...]
 }
 ```
 
@@ -314,7 +314,7 @@ Authorization: Bearer <access_token>
 ```
 {
 "status": 200, 
-"data": {"name":"test","points":1500,"pid":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10, "rank":2}
+"data": {"name":"test","points":1500,"user_id":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10, "rank":2}
 }
 ```
 #### [GET]나의 작품 목록(창작자)
@@ -330,13 +330,13 @@ Authorization: Bearer <access_token>
                             "artist":"test",
                             "cover":"img",
                             "title":"test",
-                            "pid":1,
+                            "song_id":1,
                             "play_cnt":100
                            }, {
                            "artist":"test",
                            "cover":"img",
                            "title":"test",
-                           "pid":2,
+                           "song_id":2,
                            "play_cnt":100                           
                           }],
          }
@@ -356,12 +356,12 @@ Authorization: Bearer <access_token>
             "sponsor_list":[{
                             "name":"test",
                             "point":5,
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"
                            }, {
                             "name":"test",
                             "point":5,
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"                          
                           }],
          }
@@ -381,12 +381,12 @@ Authorization: Bearer <access_token>
             "support_list":[{
                             "name":"test",
                             "point":5,
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"
                            }, {
                             "name":"test",
                             "point":5,
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"                          
                           }],
          }
@@ -407,13 +407,13 @@ Authorization: Bearer <access_token>
                             "name":"test",
                             "points":5,
                             "type":"sponsor"
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"
                            }, {
                             "name":"test",
                             "type":"support"
                             "points":5,
-                            "pid":1,
+                            "user_id":1,
                             "date":"2018-01-01"                          
                           }],
          }
