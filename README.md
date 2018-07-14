@@ -307,7 +307,7 @@ Authorization: Bearer <access_token>
 #### [GET] 개인 프로필
 *개인 프로필 조회에 따른 데이터 요청*
 ```
-/api/{version}/{me,id}
+/api/{version}/profile/{me,id}
 ```
 * id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
 
