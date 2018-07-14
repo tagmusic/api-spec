@@ -116,8 +116,8 @@ Authorization: Bearer <access_token>
 #### [POST] Playlist 등록/수정
 *플레이리스트에 대한 수정사항 요청*
 ```
-/api/{version}/playlist/{id}
-{"title": "lovely lovely", "user_id": 123}
+/api/{version}/playlist
+{"id":1,"title": "lovely lovely", "user_id": 123}
 ```
 * id:playlist id, int, id=0이거나 없을 경우 신규등록, id>0 일경우 수정 
 
@@ -136,7 +136,8 @@ Authorization: Bearer <access_token>
 #### [DELETE] Playlist 삭제
 *플레이리스트에 대한 삭제 요청*
 ```
-/api/{version}/playlist/{id}
+/api/{version}/playlist
+{"id":1}
 ```
 * id:삭제할 playlist id, int
 
