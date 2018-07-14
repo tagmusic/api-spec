@@ -307,9 +307,9 @@ Authorization: Bearer <access_token>
 #### [GET] 개인 프로필
 *개인 프로필 조회에 따른 데이터 요청*
 ```
-/api/{version}/profile/{me,id}
+/api/{version}/profile/info/{id}
 ```
-* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
+* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
 
 * Return value
 ```
@@ -321,7 +321,8 @@ Authorization: Bearer <access_token>
 #### [GET]나의 작품 목록(창작자)
 *개인 프로필 조회에 따른 개인 작품 목록 요청*
 ```
-/api/{version}/me/song
+/api/{version}/profile/song/{id}
+* id : 해당하는 user_no값을 가진 유저의 창작곡을 가져온다, int
 ```
 * Return value
 ```
@@ -346,9 +347,9 @@ Authorization: Bearer <access_token>
 #### [GET]나의 후원자 목록
 *개인 프로필 조회에 따른 개인 후원자 목록 요청*
 ```
-/api/{version}/{me, id}/sponsor
+/api/{version}/profile/sponsor/{id}
 ```
-* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, string or int
+* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
 
 * Return value
 ```
@@ -371,9 +372,9 @@ Authorization: Bearer <access_token>
 #### [GET]내가 후원한 목록
 *개인 프로필 조회에 따른 개인 후원 목록 요청*
 ```
-/api/{version}/{me, id}/support
+/api/{version}/profile/support{id}
 ```
-* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), string or int
+* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
 
 * Return value
 ```
@@ -396,9 +397,9 @@ Authorization: Bearer <access_token>
 #### [GET]개인 포인트 목록 요청
 *개인 포인트 사용 목록 요청*
 ```
-/api/{version}/{me, id}/point
+/api/{version}/profile/point/{id}
 ```
-* id : me 또는 자신의 아이디일 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), string or int
+* id : 자신의 아이디일 경우 나의 포인트내역, 그외의 경우 타인의 포인트내역에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
 
 * Return value
 ```
