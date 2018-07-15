@@ -18,6 +18,8 @@ songs
 ```
 Authorization: Bearer <access_token>
 ```
+*login시에는 관리자용 app_token을 이용, 그 외는 user에게 발급된 access_token을 전송
+
 ### 인증(에러)
 *토큰을 이용한 접근시 발생할 수 있는 에러 상황 정리 
 #### 만료된 토큰을 이용한 접근(expired_token)
@@ -40,8 +42,9 @@ Authorization: Bearer <access_token>
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
-{"provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
+{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
 ```
+*app_id와 app_token은 login시에 정상적인 app을 통한것인지 확인하기 위해 사용. **Authorization: Bearer <app_token>** 주의
 * Return value
 * userID로 JWT생성, JWT값은 access_token으로 보내준다.
 ```
