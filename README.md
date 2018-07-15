@@ -40,7 +40,7 @@ Authorization: Bearer <access_token>
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
-{"provider": "twitter", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
+{"provider": "twitter", "id", "id-in-provider-we-use-this-as-user-indentity", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
 ```
 * Return value
 * userID로 JWT생성, JWT값은 access_token으로 보내준다.
