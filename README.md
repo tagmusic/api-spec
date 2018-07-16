@@ -120,7 +120,7 @@ Authorization: Bearer <access_token>
 *플레이리스트에 대한 수정사항 요청*
 ```
 /api/{version}/playlist
-{"id":1,"title": "lovely lovely", "user_id": 123}
+{"id":1,"title": "lovely lovely", "user_id": 123, "deleted" : 0}
 ```
 * id:playlist id, int, id=0이거나 없을 경우 신규등록, id>0 일경우 수정 
 
@@ -128,12 +128,7 @@ Authorization: Bearer <access_token>
 ```
 {
 "status": 200, 
-"data": {
-          "id": 1
-          "user_id": 12
-          "title":"lovely",
-          "count":0
-          }
+"message" : "success"
 }
 ```
 #### [DELETE] Playlist 삭제
@@ -235,7 +230,7 @@ Authorization: Bearer <access_token>
                            "title":"test",
                            "song_id":1
                           }],
-           "user_no":1,
+           "user_id":1,
            "repeat_yn":"Y"
          }
 }
