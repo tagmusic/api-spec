@@ -92,7 +92,13 @@ Authorization: Bearer <access_token>
 "status": 200, 
 "id": 1,
 "name": "imo",
-"data": [{"id", 1, "title": "aaa", "artist": "bbb","cover":"img1.jpg", "filepath":"/img/song/", "bitrate": "", "genre": "jazz", "rank":"1"}, {}]
+"data": [{"album": "Duality", 
+        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
+        "cover": null, 
+        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
+        "song_id": 31, 
+        "title": "Stets i Truure"}, {}]
 }
 ```
 
@@ -191,16 +197,21 @@ Authorization: Bearer <access_token>
 {"status": 200, 
  "data": {
             "count":30,
-            "song_list":[{
-                            "artist":"test",
-                            "cover":"img",
-                            "title":"test",
-                            "song_id":1
-                           }, {"artist":"test",
-                           "cover":"img",
-                           "title":"test",
-                           "song_id":2
-                          }],
+            "song_list":[{"album": "Duality", 
+         "artist": "Animata/Sarah Buechi/Christoph Haberer", 
+        "cover": null, 
+        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Christoph Haberer.mp3", 
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20Truure%20-%20Animata%2CSarah%20Buechi%2CChristoph%20Haberer.mp3?Expires=1531830610&Signature=jTmx89GmpScwPTyw~P3R4OMA3GbMilbUkbuUh-1uiXarGDE5b2i~iBu04k5RkR-YVn0EaaFNardRPOh6menl4KmKJLw4pdxFiQ4C-g1yA-FmhDCCA-k~XAHfZ7AHh7oWckgotSbJJo6K~rAIuOjWJxPoPkhjEGStEc4esjXJc04zbqcfCQqy50Sjd1yZ9rATOb2nzfZX5KDPPidmO6EuqsmBc6VHgey3vJ4RXjx5zxp1iUJkaih92nTP5tmmtSgCMv3qPR-EEsk6YcChTPJzRN9iDQBRY~V-3IBo1Aj7j1PdWy94NHyNUV8Nha7bBJDfLytOKR3SoGMz7sIbVEuPDA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
+        "song_id": 31, 
+        "title": "Stets i Truure"
+                           }, 
+                           {"album": "Duality", 
+        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
+        "cover": null, 
+        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
+        "song_id": 31, 
+        "title": "Stets i Truure"}],
            "id":1,
            "title":"test",
            "user_id":1
@@ -221,14 +232,20 @@ Authorization: Bearer <access_token>
  "data": {
             "count":30,
             "song_list":[{
-                            "artist":"test",
-                            "cover":"img",
-                            "title":"test",
-                            "song_id":1
-                           }, {"artist":"test",
-                           "cover":"img",
-                           "title":"test",
-                           "song_id":1
+                            "album": "Duality", 
+        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
+        "cover": null, 
+        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
+        "song_id": 31, 
+        "title": "Stets i Truure"
+                           }, {"album": "Duality", 
+        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
+        "cover": null, 
+        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
+        "song_id": 31, 
+        "title": "Stets i Truure"
                           }],
            "user_id":1,
            "repeat_yn":"Y"
@@ -275,8 +292,17 @@ Authorization: Bearer <access_token>
 * Return value
 ```
 {
-"status": 200, 
-"data": {"artist":"test","cover":"img","title":"test","song_id":"1","duration":225, "lyric": "lydkdkdkdkdk"}
+  "data": {
+    "album": null, 
+    "artist": null, 
+    "cover": null, 
+    "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
+    "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531831138&Signature=OBUxM4S3LQVgaQybvQLW28MtzLzRhXIuBXaFawZww544jKHIK5Py5WUhKzIumTxUfHQuZhOgD5lgm2dxPdkDASK7YDQmk5YBegCAdqcLx8dZrvOxUa~5WKrG5pYb~63UwT~5eH2mUwi743LUuE9RGk8s6DTUuKitZFKwnqkfz15gHbtJddkgvWPIiizAd7dc294JbyEEBOMfYOBUFX64NFqBO-AGBEAC~wROmxx~i8KXe5OBj76h-g-2WUs7ZgniMUr33QCsRH--wAlEq6yi7F0YcWGE9jksLRNVxmtEk5KknD1SFOXhJI5EPX3Ztnh6At9mBMLUmiuzDGNplH2~RA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
+    "lyric": "tetetetetetetete", 
+    "song_id": 1, 
+    "title": "Fade - Alan Walker.mp3"
+  }, 
+  "status": 200
 }
 ```
 #### playList에 추가하기
