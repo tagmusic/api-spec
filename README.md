@@ -408,45 +408,41 @@ search_type = artist
 
 * Return value
 ```
-{"status": 200, 
- "data": {
-            "sponsor_list":[{
-                            "name":"test",
-                            "point":5,
-                            "user_id":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "point":5,
-                            "user_id":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
+{
+  "data": {
+    "sponsor_list": [
+      {
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test", 
+        "points": 10, 
+        "user_id": 1
+      }
+    ]
+  }, 
+  "status": 200
 }
 ```
 #### [GET]내가 후원한 목록
 *개인 프로필 조회에 따른 개인 후원 목록 요청*
 ```
-/api/{version}/profile/support{id}
+/api/{version}/profile/support/{id}
 ```
 * id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
 
 * Return value
 ```
-{"status": 200, 
- "data": {
-            "support_list":[{
-                            "name":"test",
-                            "point":5,
-                            "user_id":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "point":5,
-                            "user_id":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
+{
+  "data": {
+    "support_list": [
+      {
+        "artist_id": 1, 
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test", 
+        "points": 10
+      }
+    ]
+  }, 
+  "status": 200
 }
 ```
 #### [GET]개인 포인트 목록 요청
