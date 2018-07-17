@@ -315,15 +315,31 @@ Authorization: Bearer <access_token>
 ```
 /api/{version}/search?{search_type,search_value}
 ```
-* search_type : song, artist... 어떤 값을 검색할지에 대한 type, string, default:song
+* search_type : song, artist... 어떤 값을 검색할지에 대한 type, string, default:song /
 * search_value : 검색어, string
+* 현재 song / artist 두 타입 모두 song만 검색
+* search_value = artist에 대해 검색
 
 * Return value
 ```
+search_type = song
 {
-"status": 200, 
-"data": [{"artist":"test","cover":"img","title":"test","song":"1","duration":225},...]
+  "data": [
+    {
+      "album": "NCS: The Best of 2015", 
+      "artist": "Alan Walker", 
+      "cover": null, 
+      "filepath": "countries/CHINA/201605 \uc774\uc804/Spectre - Alan Walker.mp3", 
+      "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Spectre%20-%20Alan%20Walker.mp3?Expires=1531833292&Signature=kbQ7nSdhz-UbdYmzkJXUDfbPss2ezHn6CjJgsMYfVrC~dD5etuFwia53He0CYT5c8lb0gmO00RlsxPr9Dyg2S7XunUGaqYaqhm9jZEIUGeODeqXU60P5HnwW-fp7IN-1F8N~g7fzXgoK0SFVSmEAfGIyJN78aM9~hLniHvy4BU5M6JomHL3vqJIuj7zXa9H6Xb8npsCcKPCtTRuSSzoiRIIyDgWDrDsUNiW2NRZXi-dx3fuhzljHK4bs7JdaoeG7rVgbCvzTnjddqQP0lVmPokhwI4j8X9T-B3fFdYXjn~hyawPEbWYtBrUDlaGOEXYCfJo-6stQQcM1RX3J3A-p3Q__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
+      "song_id": 4, 
+      "title": "Spectre"
+    }
+  ], 
+  "status": 200
 }
+
+search_type = artist
+
 ```
 
 
@@ -338,8 +354,19 @@ Authorization: Bearer <access_token>
 * Return value
 ```
 {
-"status": 200, 
-"data": {"name":"test","points":1500,"user_id":1,"sponsor_cnt":225, "support_cnt":100, "song_cnt":10, "rank":2}
+  "data": {
+    "bio": "test", 
+    "data": "test", 
+    "name": "test", 
+    "points": 0, 
+    "rank": 0, 
+    "song_cnt": 0, 
+    "sponsor_cnt": 0, 
+    "support_cnt": 0, 
+    "user_id": 1, 
+    "user_img": "test"
+  }, 
+  "status": 200
 }
 ```
 #### [GET]나의 작품 목록(창작자)
@@ -353,17 +380,21 @@ Authorization: Bearer <access_token>
 {"status": 200, 
  "data": {
             "song_list":[{
-                            "artist":"test",
-                            "cover":"img",
-                            "title":"test",
-                            "song_id":1,
-                            "play_cnt":100
+                            "album": null, 
+                            "artist": null, 
+                            "cover": null, 
+                            "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
+                            "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531837310&Signature=cIHI9r3KhxdWnosk2e0J1e4CL91FMP5Z5DcZ4UwXzbGpfy7cxbrkbp1H8T5ZLwA6JhgoXXI2MwKsElu~q8CMUYH0oideJ0hJqWYYQx-PEYGK4Tr2lOOwZS5ai5Bk~PMggSZR275rTUrFOOfKaErqEjOzbcrzdFpPaSPm0brboEqw2l90FQMUCgqeRTUNK52PCop-C-36VTKxgbQOx0rj52wN29DOZcpiTv~OR0p-2pRbt1LYCDUTqRmyNLsUUIOOQlJa1KlUxxXMbqlif64m4z4SZAYvMicKaDQRBsjjFLtPw5y8ZDCVSXT2Smm7bnQhUYSAoob0hg-VMwAGlSnqCQ__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
+                            "song_id": 1, 
+                            "title": "Fade - Alan Walker.mp3"
                            }, {
-                           "artist":"test",
-                           "cover":"img",
-                           "title":"test",
-                           "song_id":2,
-                           "play_cnt":100                           
+                            "album": null, 
+                            "artist": null, 
+                            "cover": null, 
+                            "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
+                            "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531837310&Signature=cIHI9r3KhxdWnosk2e0J1e4CL91FMP5Z5DcZ4UwXzbGpfy7cxbrkbp1H8T5ZLwA6JhgoXXI2MwKsElu~q8CMUYH0oideJ0hJqWYYQx-PEYGK4Tr2lOOwZS5ai5Bk~PMggSZR275rTUrFOOfKaErqEjOzbcrzdFpPaSPm0brboEqw2l90FQMUCgqeRTUNK52PCop-C-36VTKxgbQOx0rj52wN29DOZcpiTv~OR0p-2pRbt1LYCDUTqRmyNLsUUIOOQlJa1KlUxxXMbqlif64m4z4SZAYvMicKaDQRBsjjFLtPw5y8ZDCVSXT2Smm7bnQhUYSAoob0hg-VMwAGlSnqCQ__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
+                            "song_id": 2, 
+                            "title": "Fade - Alan Walker.mp3"                         
                           }],
          }
 }
