@@ -487,6 +487,8 @@ search_type = artist
 ```
 * creator_id : 후원 받는 유저(creator)에 pid(creator_id), int (* 개인 프로필 요청 return type 참고)
 
+
+```
 * Return value
 {
     "message": "success",
