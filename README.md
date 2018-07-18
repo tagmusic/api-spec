@@ -351,7 +351,9 @@ search_type = artist
 ```
 * id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
 
+
 * Return value
+* return value에 creator_id가 null이 아닌경우 창작자로 후원하기 버튼이 활성화, 아닐경우 후원이 불가능하다.
 ```
 {
   "data": {
@@ -364,6 +366,7 @@ search_type = artist
     "sponsor_cnt": 0, 
     "support_cnt": 0, 
     "user_id": 1, 
+    "creator_id" : 1 
     "user_img": "test"
   }, 
   "status": 200
@@ -454,36 +457,40 @@ search_type = artist
 
 * Return value
 ```
-{"status": 200, 
- "data": {
-            "point_list":[{
-                            "name":"test",
-                            "points":5,
-                            "type":"sponsor"
-                            "user_id":1,
-                            "date":"2018-01-01"
-                           }, {
-                            "name":"test",
-                            "type":"support"
-                            "points":5,
-                            "user_id":1,
-                            "date":"2018-01-01"                          
-                          }],
-         }
+{
+  "data": {
+    "point_list": [
+      {
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test", 
+        "points": 10, 
+        "type": "sponsor", 
+        "user_id": 1
+      }, 
+      {
+        "artist_id": 1, 
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test", 
+        "points": 10, 
+        "type": "support"
+      }
+    ]
+  }, 
+  "status": 200
 }
 ```
 #### [PUT]포인트 후원
 *개인 포인트 후원에 따른 후원*
 ```
-/api/{version}/support/{id}
+/api/{version}/support/{creator_id}
 {"points":10}
 ```
-* id : 후원 받는 유저에 pid, int
+* creator_id : 후원 받는 유저(creator)에 pid(creator_id), int (* 개인 프로필 요청 return type 참고)
 
 * Return value
-```
-{"status": 200, 
- "message": "success"
+{
+    "message": "success",
+    "status": 200
 }
 ```
 
