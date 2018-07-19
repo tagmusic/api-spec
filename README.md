@@ -511,13 +511,11 @@ search_type = artist
 {
   "data": [
     {
-      "content": "testtesttesttest", 
-      "created_at": "Thu, 19 Jul 2018 21:53:12 GMT", 
-      "deleted": "0", 
-      "pid": 1, 
-      "title": "test", 
-      "updated_at": "Thu, 19 Jul 2018 21:53:12 GMT", 
-      "worker_id": 0
+         "content": "testtesttesttest", 
+        "created_at": "Thu, 19 Jul 2018 21:53:12 GMT", 
+        "id": 1, 
+        "title": "test", 
+        "updated_at": "Thu, 19 Jul 2018 21:53:12 GMT"
     }
   ], 
   "status": 200
@@ -533,8 +531,14 @@ search_type = artist
 * Return value
 ```
 {
-"status": 200, 
-"data": {"content":"its just test content!!its just test content!!its just test content!!its just test content!!its just test content!!","date":"2018-01-01","title":"test","txt_no":1}
+  "data": {
+    "content": "testtesttesttest", 
+    "created_at": "Thu, 19 Jul 2018 21:53:12 GMT", 
+    "id": 1, 
+    "title": "test", 
+    "updated_at": "Thu, 19 Jul 2018 21:53:12 GMT"
+  }, 
+  "status": 200
 }
 ```
 ### 이벤트
