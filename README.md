@@ -599,6 +599,7 @@ search_type = artist
 {"title":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
  "provider":"facebook", "sns_id" : "asdiop", "hompage" :"aaa.com", "belongto":"aaa"
 }
+```
 * Return value
 ```
 {
