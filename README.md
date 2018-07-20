@@ -83,7 +83,7 @@ Authorization: Bearer <access_token>
 * chart_id: chart menu id, default: 1(imo)
 * page_count: 리스트 개수, int, default: 10
 * page : 현재 페이지, int, default: 0
-* sort: latest, favor, dj, recommend, ... 과 같은 차트 정렬 속성, String, default: latest
+* sort: latest, favor, dj, recommend, ... 과 같은 차트 정렬 속성, String, default: latest //현재 sort는 latest만 가능
 
 * Return value
 * 기본값 리턴 아이템 적을것
@@ -92,13 +92,13 @@ Authorization: Bearer <access_token>
 "status": 200, 
 "id": 1,
 "name": "imo",
-"data": [{"album": "Duality", 
-        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
-        "cover": null, 
-        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
-        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
-        "song_id": 31, 
-        "title": "Stets i Truure"}, {}]
+"data": [{ "album": "Howl's Moving Castle (2004)", 
+      "artist": "Joe Hisaishi", 
+      "cover": null, 
+      "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3", 
+      "id": 498, 
+      "rank": 1, 
+      "title": "The Boy Who Drank Stars"}, {}]
 }
 ```
 
@@ -113,13 +113,17 @@ Authorization: Bearer <access_token>
 
 * Return value
 ```
-{"status": 200,
- "data": [{
-          "id": 1
-          "user_id": 12
-          "title":"lovely",
-          "count":12
-          },...]
+{
+  "data": [
+    {
+      "count": 3, 
+      "deleted": "0", 
+      "id": 2, 
+      "title": "bbb", 
+      "user_id": 1
+    }
+  ], 
+  "status": 200
 }
 ```
 #### [POST] Playlist 등록/수정
