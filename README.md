@@ -604,8 +604,8 @@ search_type = artist
 *창작자 등록 하기*
 ```
 /api/{version}/creator
-{"title":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
- "provider":"facebook", "sns_id" : "asdiop", "hompage" :"aaa.com", "belongto":"aaa"
+{"name":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
+ "provider":"facebook", "sns" : "asdiop", "homepage" :"aaa.com", "belongto":"aaa"
 }
 ```
 * Return value
