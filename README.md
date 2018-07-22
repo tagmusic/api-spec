@@ -42,13 +42,18 @@ Authorization: Bearer <access_token>
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
-{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"certified_key": "xxxx", "id": 49236846, "access_token": {"oauth_token": "12345-JEXHIy12eP13pPknknzbbsErDsdLE0GfIFPW0JrWdsssBYq", "oauth_token_secret": "ziAVb58Lfg2cM9saJclkZ7T258ydvQU8rp1f2gySYouEfa", "user_id": "12345", "screen_name": "dddddd", "x_auth_expires": "0", "user_name": "abc"}}
+{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img", "profile_img"}}
 ```
-*app_id와 app_token은 login시에 정상적인 app을 통한것인지 확인하기 위해 사용. **Authorization: Bearer <app_token>** 주의
+*app_id와 app_token은 login시에 정상적인 app을 통한것인지 확인하기 위해 사용. 
+*app_id는 json, app_token은 request header에 **Authorization: Bearer <app_token>** 주의
+*provider : login platform 제공자 명 (필수)
+*id : login platform 접근 token value (필수)
+*data : 해당 user 관련 property data json value
+
 * Return value
 * userID로 JWT생성, JWT값은 access_token으로 보내준다.
 ```
-{"status": 200, "id": 1234, "message": "logged in", "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwianRpIjoiZjhmNDlmMjUtNTQ4OS00NmRjLTkyOWUtZTU2Y2QxOGZhNzRlIiwidXNlcl9jbGFpbXMiOnt9LCJuYmYiOjE0NzQ0NzQ3OTEsImlhdCI6MTQ3NDQ3NDc5MSw"}
+{"status": 200, "user_id": 1234, "message": "logged in", "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwianRpIjoiZjhmNDlmMjUtNTQ4OS00NmRjLTkyOWUtZTU2Y2QxOGZhNzRlIiwidXNlcl9jbGFpbXMiOnt9LCJuYmYiOjE0NzQ0NzQ3OTEsImlhdCI6MTQ3NDQ3NDc5MSw"}
 ```
 
 ### [DELETE] 로그아웃
@@ -177,10 +182,10 @@ Authorization: Bearer <access_token>
 *플레이리스트에 곡을 삭제*
 ```
 /api/{version}/playlist/{id}
-[{"song_id": 1234}, ...]
+```
 * id:곡이 삭제될 playlist id, int
 * [{"song_id": 1234},...] 해당 값이 존재할 경우 플레이리스트에 속해있는 곡 삭제
-```
+
 * Return value
 ```
 {
@@ -256,12 +261,24 @@ Authorization: Bearer <access_token>
          }
 }
 ```
-
-#### [POST] 재생 목록에 추가
+#### [POST] 재생 목록에 playlist 음악 추가 
 *플레이리스트의 음악 리스트를 재생 목록에 추가*
 ```
-/api/{version}/played
-{"playlist_id": 1234}
+/api/{version}/played/playlist
+{"playlist_id": 2}
+```
+* Return value
+```
+{
+"status": 200, 
+"message": "success"
+}
+```
+#### [POST] 재생 목록에 음악 추가
+*플레이리스트의 음악 리스트를 재생 목록에 추가*
+```
+/api/{version}/played/song
+[{"song_id": 300}, {"song_id":301}]
 ```
 * Return value
 ```
@@ -274,7 +291,7 @@ Authorization: Bearer <access_token>
 *재생목록에서 선택된 곡 삭제*
 ```
 /api/{version}/played
-[{"song_id": 1234}, ...]
+[{"song_id": 300}, {"song_id":301}]
 ```
 * Return value
 ```
@@ -303,12 +320,69 @@ Authorization: Bearer <access_token>
     "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
     "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531831138&Signature=OBUxM4S3LQVgaQybvQLW28MtzLzRhXIuBXaFawZww544jKHIK5Py5WUhKzIumTxUfHQuZhOgD5lgm2dxPdkDASK7YDQmk5YBegCAdqcLx8dZrvOxUa~5WKrG5pYb~63UwT~5eH2mUwi743LUuE9RGk8s6DTUuKitZFKwnqkfz15gHbtJddkgvWPIiizAd7dc294JbyEEBOMfYOBUFX64NFqBO-AGBEAC~wROmxx~i8KXe5OBj76h-g-2WUs7ZgniMUr33QCsRH--wAlEq6yi7F0YcWGE9jksLRNVxmtEk5KknD1SFOXhJI5EPX3Ztnh6At9mBMLUmiuzDGNplH2~RA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
     "lyric": "tetetetetetetete", 
-    "song_id": 1, 
+    "id": 1, 
     "title": "Fade - Alan Walker.mp3"
   }, 
   "status": 200
 }
 ```
+#### [GET] 음악 재생
+*음악 재생 버튼 클릭 시 로깅*
+```
+/api/{version}/song/{id}/play
+```
+* pid:음악 상세 정보를 요청할 pid, int
+
+* Return value
+```
+{
+"status" : 200,
+"message" : "success"
+}
+```
+#### [GET] 음악 중지
+*음악 정지 버튼 클릭 시 로깅*
+```
+/api/{version}/song/{id}/stop
+```
+* pid:로깅시 음악 상세 정보를 요청할 pid, int
+
+* Return value
+```
+{
+"status" : 200,
+"message" : "success"
+}
+```
+#### [GET] 음악 재시작
+*음악 재시작 버튼 클릭 시 로깅*
+```
+/api/{version}/song/{id}/restart
+```
+* pid:로깅시 음악 상세 정보를 요청할 pid, int
+
+* Return value
+```
+{
+"status" : 200,
+"message" : "success"
+}
+```
+#### [GET] 음악 재생 완료
+*음악 재생 완료 시 로깅*
+```
+/api/{version}/song/{id}/end
+```
+* pid:로깅시 음악 상세 정보를 요청할 pid, int
+
+* Return value
+```
+{
+"status" : 200,
+"message" : "success"
+}
+```
+
 #### playList에 추가하기
 *playlist 참조*
 
@@ -369,7 +443,7 @@ search_type = artist
     "song_cnt": 0, 
     "sponsor_cnt": 0, 
     "support_cnt": 0, 
-    "user_id": 1, 
+    "id": 1, 
     "creator_id" : 1 
     "user_img": "test"
   }, 
@@ -604,8 +678,8 @@ search_type = artist
 *창작자 등록 하기*
 ```
 /api/{version}/creator
-{"name":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
- "provider":"facebook", "sns" : "asdiop", "homepage" :"aaa.com", "belongto":"aaa"
+{"title":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
+ "provider":"facebook", "sns_id" : "asdiop", "hompage" :"aaa.com", "belongto":"aaa"
 }
 ```
 * Return value
