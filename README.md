@@ -97,13 +97,16 @@ Authorization: Bearer <access_token>
 "status": 200, 
 "id": 1,
 "name": "imo",
-"data": [{ "album": "Howl's Moving Castle (2004)", 
-      "artist": "Joe Hisaishi", 
-      "cover": null, 
-      "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3", 
-      "id": 498, 
-      "rank": 1, 
-      "title": "The Boy Who Drank Stars"}, {}]
+"data": [{
+            "album": "Howl's Moving Castle (2004)",
+            "artist": "Joe Hisaishi",
+            "artist_id": 1,
+            "cover": null,
+            "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3",
+            "id": 498,
+            "rank": 1,
+            "title": "The Boy Who Drank Stars"
+        }, {}]
 }
 ```
 
@@ -206,21 +209,23 @@ Authorization: Bearer <access_token>
 {"status": 200, 
  "data": {
             "count":30,
-            "song_list":[{"album": "Duality", 
-         "artist": "Animata/Sarah Buechi/Christoph Haberer", 
-        "cover": null, 
-        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Christoph Haberer.mp3", 
-        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20Truure%20-%20Animata%2CSarah%20Buechi%2CChristoph%20Haberer.mp3?Expires=1531830610&Signature=jTmx89GmpScwPTyw~P3R4OMA3GbMilbUkbuUh-1uiXarGDE5b2i~iBu04k5RkR-YVn0EaaFNardRPOh6menl4KmKJLw4pdxFiQ4C-g1yA-FmhDCCA-k~XAHfZ7AHh7oWckgotSbJJo6K~rAIuOjWJxPoPkhjEGStEc4esjXJc04zbqcfCQqy50Sjd1yZ9rATOb2nzfZX5KDPPidmO6EuqsmBc6VHgey3vJ4RXjx5zxp1iUJkaih92nTP5tmmtSgCMv3qPR-EEsk6YcChTPJzRN9iDQBRY~V-3IBo1Aj7j1PdWy94NHyNUV8Nha7bBJDfLytOKR3SoGMz7sIbVEuPDA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
-        "song_id": 31, 
-        "title": "Stets i Truure"
-                           }, 
-                           {"album": "Duality", 
-        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
-        "cover": null, 
-        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
-        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
-        "song_id": 31, 
-        "title": "Stets i Truure"}],
+            "song_list":[{                
+                  "album": "Melodyphony (2010)",
+                  "artist": "Joe Hisaishi",
+                  "artist_id": 1,
+                  "cover": null,
+                  "filepath": "countries/Joe Hisaishi/Albums/Joe Hisaishi - Melodyphony (2010)/03. Joe Hisaishi - Kiki's Delivery Service.mp3",
+                  "song_id": 231,
+                  "title": "Kiki's Delivery Service"
+               }, {
+                "album": "Starlight Theater",
+                "artist": "Starlight Kuku Gumi",
+                "artist_id": null,
+                "cover": null,
+                "filepath": "countries/JAPAN/201804/Starlight Kuku Gumi_Starlight Theater.mp3",
+                "song_id": 120,
+                "title": "Starlight Theater"
+               }],
            "id":1,
            "title":"test",
            "user_id":1
@@ -241,20 +246,21 @@ Authorization: Bearer <access_token>
  "data": {
             "count":30,
             "song_list":[{
-                            "album": "Duality", 
-        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
-        "cover": null, 
-        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
-        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
-        "song_id": 31, 
-        "title": "Stets i Truure"
-                           }, {"album": "Duality", 
-        "artist": "Animata/Sarah Buechi/Christoph Haberer", 
-        "cover": null, 
-        "filepath": "countries/CHINA/\ucd5c\uc2e0 TOP100/201804/Stets i Truure - Animata,Sarah Buechi,Haberer.mp3", 
-        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/%EC%B5%9C%EC%8B%A0%20TOP100/201804/Stets%20i%20
-        "song_id": 31, 
-        "title": "Stets i Truure"
+                "album": null,
+                "artist": null,
+                "artist_id": 1,
+                "cover": null,
+                "filepath": "countries/CHINA/201605 이전/Fade - Alan Walker.mp3",
+                "song_id": 1,
+                "title": "Fade - Alan Walker.mp3"
+                           }, {
+                "album": "古筝古琴十大金曲01",
+                "artist": "",
+                "artist_id": null,
+                "cover": null,
+                "filepath": "countries/CHINA/201710/高山流水（古筝独奏） - 群星.mp3",
+                "song_id": 12,
+                "title": "高山流水（古筝独奏）"
                           }],
            "user_id":1,
            "repeat_yn":"Y"
@@ -314,14 +320,15 @@ Authorization: Bearer <access_token>
 ```
 {
   "data": {
-    "album": null, 
-    "artist": null, 
-    "cover": null, 
-    "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
-    "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531831138&Signature=OBUxM4S3LQVgaQybvQLW28MtzLzRhXIuBXaFawZww544jKHIK5Py5WUhKzIumTxUfHQuZhOgD5lgm2dxPdkDASK7YDQmk5YBegCAdqcLx8dZrvOxUa~5WKrG5pYb~63UwT~5eH2mUwi743LUuE9RGk8s6DTUuKitZFKwnqkfz15gHbtJddkgvWPIiizAd7dc294JbyEEBOMfYOBUFX64NFqBO-AGBEAC~wROmxx~i8KXe5OBj76h-g-2WUs7ZgniMUr33QCsRH--wAlEq6yi7F0YcWGE9jksLRNVxmtEk5KknD1SFOXhJI5EPX3Ztnh6At9mBMLUmiuzDGNplH2~RA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
-    "lyric": "tetetetetetetete", 
-    "id": 1, 
-    "title": "Fade - Alan Walker.mp3"
+        "album": null,
+        "artist": null,
+        "artist_id": 1,
+        "cover": null,
+        "filepath": "countries/CHINA/201605 이전/Fade - Alan Walker.mp3",
+        "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1532463180&Signature=ZR8Pc2J8Z0qSTfeO1ylPo01Oa4Hwh-gexcWJggH6GMq5tVElg4Ohrq48dDKvRGTnq~ybWeuA9eosxVRYB6SqJtQvLQfMY1n64wNXgz2b5a2yXwyOAUIoI1wSIr9jDmvEHzTPQQTcQy8cr806ArueyAxQd1-e7HTDllxu2DQGpVKgV86RiHaFM05P0WS0IIeaJh-iT9OAZEHMSxKScejpFMDWry5JB0YKg-Ni~-v6QaqZrurVnyNQXgHjz12nYFuty~R9fZyxsYKm8LR4AXI3xa5z5dqeuz2BtVX4TMsYqCSBGfeAUWPng1KOtYjwpQ5rlQJPxhOToxnR6tO2Hw1qnA__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q",
+        "lyric": "tetetetetetetete",
+        "song_id": 1,
+        "title": "Fade - Alan Walker.mp3"
   }, 
   "status": 200
 }
@@ -403,20 +410,46 @@ Authorization: Bearer <access_token>
 search_type = song
 {
   "data": [
-    {
-      "album": "NCS: The Best of 2015", 
-      "artist": "Alan Walker", 
-      "cover": null, 
-      "filepath": "countries/CHINA/201605 \uc774\uc804/Spectre - Alan Walker.mp3", 
-      "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Spectre%20-%20Alan%20Walker.mp3?Expires=1531833292&Signature=kbQ7nSdhz-UbdYmzkJXUDfbPss2ezHn6CjJgsMYfVrC~dD5etuFwia53He0CYT5c8lb0gmO00RlsxPr9Dyg2S7XunUGaqYaqhm9jZEIUGeODeqXU60P5HnwW-fp7IN-1F8N~g7fzXgoK0SFVSmEAfGIyJN78aM9~hLniHvy4BU5M6JomHL3vqJIuj7zXa9H6Xb8npsCcKPCtTRuSSzoiRIIyDgWDrDsUNiW2NRZXi-dx3fuhzljHK4bs7JdaoeG7rVgbCvzTnjddqQP0lVmPokhwI4j8X9T-B3fFdYXjn~hyawPEbWYtBrUDlaGOEXYCfJo-6stQQcM1RX3J3A-p3Q__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
-      "song_id": 4, 
-      "title": "Spectre"
-    }
+            {
+            "album": null,
+            "artist": null,
+            "artist_id": 1,
+            "cover": null,
+            "filepath": "countries/CHINA/201605 이전/Fade - Alan Walker.mp3",
+            "song_id": 1,
+            "title": "Fade - Alan Walker.mp3"
+        },
+        {
+            "album": "Howl's Moving Castle (2004)",
+            "artist": "Joe Hisaishi",
+            "artist_id": null,
+            "cover": null,
+            "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/21. Joe Hisaishi - Family.mp3",
+            "song_id": 494,
+            "title": "Family"
+        }
   ], 
   "status": 200
 }
 
 search_type = artist
+{
+    "data": [
+        {
+            "id": 2,
+            "name": "test2",
+            "song_cnt": 0,
+            "user_img": "test2"
+        },
+        {
+            "id": 1,
+            "name": "test",
+            "song_cnt": 5,
+            "user_img": "test"
+        }
+    ],
+    "status": 200
+}
 
 ```
 
@@ -429,27 +462,101 @@ search_type = artist
 ```
 * id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
 
-
 * Return value
-* return value에 creator_id가 null이 아닌경우 창작자로 후원하기 버튼이 활성화, 아닐경우 후원이 불가능하다.
 ```
+private(자신)
 {
-  "data": {
-    "bio": "test", 
-    "data": "test", 
-    "name": "test", 
-    "points": 0, 
-    "rank": 0, 
-    "song_cnt": 0, 
-    "sponsor_cnt": 0, 
-    "support_cnt": 0, 
-    "id": 1, 
-    "creator_id" : 1 
-    "user_img": "test"
-  }, 
-  "status": 200
+    "data": {
+        "bio": "test",
+        "creator_id": 1,
+        "data": "test",
+        "id": 1,
+        "name": "test",
+        "points": 0,
+        "rank": 0,
+        "song_cnt": 5,
+        "sponsor_cnt": 2,
+        "support_cnt": 2,
+        "user_img": "test"
+    },
+    "status": 200
+}
+public(타인)
+{
+    "data": {
+        "bio": "test",
+        "creator_id": 1,
+        "data": "test",
+        "id": 1,
+        "name": "test",
+        "points": 0,
+        "rank": 0,
+        "song_cnt": 5,
+        "sponsor_cnt": 2,
+        "user_img": "test"
+    },
+    "status": 200
 }
 ```
+#### [GET]아티스트 프로필
+*아티스트 프로필 조회(artist_id를 통한 조회)에 따른 데이터 요청*
+```
+/api/{version}/profile/artist/{artist_id}
+```
+* artist_id : 해당하는 artist_no를 통해 해당유저가 imo artist유저인지 일반 artist 유저인지(회원가입하지 않은 가수의 데이터) 판별하기 위한 value, int
+
+
+* Return value
+* return value에 creator_id가 null이 아닌경우 창작자로 후원하기 버튼이 활성화, 아닐경우 후원이 불가능하다. 해당 id가 null인경우 일반 artist유저이다.
+```
+imo유저 + 자신의 프로필
+{
+    "data": {
+        "bio": "test",
+        "creator_id": 1,
+        "data": "test",
+        "id": 1,
+        "name": "test",
+        "points": 0,
+        "song_cnt": 5,
+        "sponsor_cnt": 2,
+        "support_cnt": 2,
+        "user_id": 1,
+        "user_img": "test"
+    },
+    "status": 200
+}
+imo유저 + 타인의 프로필
+{
+    "data": {
+        "bio": "test",
+        "creator_id": 1,
+        "data": "test",
+        "id": 1,
+        "name": "test",
+        "points": 0,
+        "song_cnt": 5,
+        "sponsor_cnt": 2,
+        "user_id": 1,
+        "user_img": "test"
+    },
+    "status": 200
+}
+일반 artist 유저
+{
+    "data": {
+        "bio": "test2",
+        "creator_id": null,
+        "id": 2,
+        "name": "test2",
+        "song_cnt": 0,
+        "sponsor_cnt": 0,
+        "user_img": "test2"
+    },
+    "status": 200
+}
+```
+
 #### [GET]나의 작품 목록(창작자)
 *개인 프로필 조회에 따른 개인 작품 목록 요청*
 ```
@@ -460,32 +567,90 @@ search_type = artist
 ```
 {"status": 200, 
  "data": {
-            "song_list":[{
-                            "album": null, 
-                            "artist": null, 
-                            "cover": null, 
-                            "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
-                            "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531837310&Signature=cIHI9r3KhxdWnosk2e0J1e4CL91FMP5Z5DcZ4UwXzbGpfy7cxbrkbp1H8T5ZLwA6JhgoXXI2MwKsElu~q8CMUYH0oideJ0hJqWYYQx-PEYGK4Tr2lOOwZS5ai5Bk~PMggSZR275rTUrFOOfKaErqEjOzbcrzdFpPaSPm0brboEqw2l90FQMUCgqeRTUNK52PCop-C-36VTKxgbQOx0rj52wN29DOZcpiTv~OR0p-2pRbt1LYCDUTqRmyNLsUUIOOQlJa1KlUxxXMbqlif64m4z4SZAYvMicKaDQRBsjjFLtPw5y8ZDCVSXT2Smm7bnQhUYSAoob0hg-VMwAGlSnqCQ__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
-                            "song_id": 1, 
-                            "title": "Fade - Alan Walker.mp3"
-                           }, {
-                            "album": null, 
-                            "artist": null, 
-                            "cover": null, 
-                            "filepath": "countries/CHINA/201605 \uc774\uc804/Fade - Alan Walker.mp3", 
-                            "fileurl": "https://d16ku82ikb3chl.cloudfront.net/countries/CHINA/201605%20%EC%9D%B4%EC%A0%84/Fade%20-%20Alan%20Walker.mp3?Expires=1531837310&Signature=cIHI9r3KhxdWnosk2e0J1e4CL91FMP5Z5DcZ4UwXzbGpfy7cxbrkbp1H8T5ZLwA6JhgoXXI2MwKsElu~q8CMUYH0oideJ0hJqWYYQx-PEYGK4Tr2lOOwZS5ai5Bk~PMggSZR275rTUrFOOfKaErqEjOzbcrzdFpPaSPm0brboEqw2l90FQMUCgqeRTUNK52PCop-C-36VTKxgbQOx0rj52wN29DOZcpiTv~OR0p-2pRbt1LYCDUTqRmyNLsUUIOOQlJa1KlUxxXMbqlif64m4z4SZAYvMicKaDQRBsjjFLtPw5y8ZDCVSXT2Smm7bnQhUYSAoob0hg-VMwAGlSnqCQ__&Key-Pair-Id=APKAIU7WAW37WWYKW33Q", 
-                            "song_id": 2, 
-                            "title": "Fade - Alan Walker.mp3"                         
-                          }],
+            "song_list":[            {
+                "album": "Howl's Moving Castle (2004)",
+                "artist": "Joe Hisaishi",
+                "artist_id": 1,
+                "cover": null,
+                "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3",
+                "song_id": 498,
+                "title": "The Boy Who Drank Stars"
+            },
+            {
+                "album": "TonArt die 2te",
+                "artist": "Sebastian Stritzl/Aries Caces",
+                "artist_id": 1,
+                "cover": null,
+                "filepath": "countries/CHINA/최신 TOP100/201804/Konzert für Tuba und Klavier_ III. - Sebastian Stritzl,Aries Caces.mp3",
+                "song_id": 30,
+                "title": "Konzert für Tuba und Klavier: III."
+            }],
          }
 }
 ```
+
+#### [GET]아티스트의 작품 목록
+*아티스트 프로필(artist_id를 통한) 조회에 따른 개인 작품 목록 요청*
+```
+/api/{version}/profile/artist/song/{artist_id}
+* artist_id : 해당하는 artist_no 가진 유저의 창작곡을 가져온다, int
+```
+* Return value
+```
+{"status": 200, 
+ "data": {
+            "song_list":[            {
+                "album": "Howl's Moving Castle (2004)",
+                "artist": "Joe Hisaishi",
+                "artist_id": 1,
+                "cover": null,
+                "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3",
+                "song_id": 498,
+                "title": "The Boy Who Drank Stars"
+            },
+            {
+                "album": "TonArt die 2te",
+                "artist": "Sebastian Stritzl/Aries Caces",
+                "artist_id": 1,
+                "cover": null,
+                "filepath": "countries/CHINA/최신 TOP100/201804/Konzert für Tuba und Klavier_ III. - Sebastian Stritzl,Aries Caces.mp3",
+                "song_id": 30,
+                "title": "Konzert für Tuba und Klavier: III."
+            }],
+         }
+}
+```
+
 #### [GET]나의 후원자 목록
 *개인 프로필 조회에 따른 개인 후원자 목록 요청*
 ```
 /api/{version}/profile/sponsor/{id}
 ```
-* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
+* id : 내 id로 artist_id를 찾아 , int
+
+* Return value
+```
+{
+  "data": {
+    "sponsor_list": [
+      {
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test", 
+        "points": 10, 
+        "user_id": 1
+      }
+    ]
+  }, 
+  "status": 200
+}
+```
+
+#### [GET]아티스트의 후원자 목록
+*아티스트 프로필(artist_id) 조회에 따른 개인 후원자 목록 요청*
+```
+/api/{version}/profile/artist/sponsor/{artist_id}
+```
+* artist_id : 해당 artist에 대한 후원자 목록을 가져올 id, int
 
 * Return value
 ```
@@ -505,10 +670,12 @@ search_type = artist
 ```
 #### [GET]내가 후원한 목록
 *개인 프로필 조회에 따른 개인 후원 목록 요청*
+*개인 프로필 또는 아티스트 프로필 조회에서 얻은 user_id값을 이용하여 호출한다.*
 ```
 /api/{version}/profile/support/{id}
 ```
 * id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
+* id가 현재 유저의 아이디와 다를경우 호출시 json value로 에러 데이터를 반환한다.
 
 * Return value
 ```
@@ -528,10 +695,12 @@ search_type = artist
 ```
 #### [GET]개인 포인트 목록 요청
 *개인 포인트 사용 목록 요청*
+*개인 프로필 또는 아티스트 프로필 조회에서 얻은 user_id값을 이용하여 호출한다.*
 ```
 /api/{version}/profile/point/{id}
 ```
 * id : 자신의 아이디일 경우 나의 포인트내역, 그외의 경우 타인의 포인트내역에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
+* id가 현재 유저의 아이디와 다를경우 호출시 json value로 에러 데이터를 반환한다.
 
 * Return value
 ```
