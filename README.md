@@ -88,7 +88,7 @@ Authorization: Bearer <access_token>
 * chart_id: chart menu id, default: 1(imo)
 * page_count: 리스트 개수, int, default: 10
 * page : 현재 페이지, int, default: 0
-* sort: latest, favor, dj, recommend, ... 과 같은 차트 정렬 속성, String, default: latest //현재 sort는 latest만 가능
+* sort: latest, favor, dj, recommend, ... 과 같은 차트 정렬 속성, String, default: latest //현재 sort는 latest, play만 가능 default: play
 
 * Return value
 * 기본값 리턴 아이템 적을것
@@ -105,6 +105,7 @@ Authorization: Bearer <access_token>
             "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/25. Joe Hisaishi - The Boy Who Drank Stars.mp3",
             "id": 498,
             "rank": 1,
+            "play_count" : 0
             "title": "The Boy Who Drank Stars"
         }, {}]
 }
@@ -381,6 +382,7 @@ Authorization: Bearer <access_token>
 /api/{version}/song/{id}/end
 ```
 * pid:로깅시 음악 상세 정보를 요청할 pid, int
+* 해당 음악이 재생 완료될 경우 play_count를 1 증가시킨다.
 
 * Return value
 ```
@@ -389,6 +391,8 @@ Authorization: Bearer <access_token>
 "message" : "success"
 }
 ```
+
+
 
 #### playList에 추가하기
 *playlist 참조*
