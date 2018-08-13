@@ -38,7 +38,7 @@ Authorization: Bearer <access_token>
 {"status":401, "message":"Missing Authorization Header"}
 ```
 
-### [POST] 로그인
+### [POST] 로그인 [jwt인증 필요]
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
@@ -56,7 +56,7 @@ Authorization: Bearer <access_token>
 {"status": 200, "user_id": 1234, "message": "logged in", "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwianRpIjoiZjhmNDlmMjUtNTQ4OS00NmRjLTkyOWUtZTU2Y2QxOGZhNzRlIiwidXNlcl9jbGFpbXMiOnt9LCJuYmYiOjE0NzQ0NzQ3OTEsImlhdCI6MTQ3NDQ3NDc5MSw"}
 ```
 
-### [DELETE] 로그아웃
+### [DELETE] 로그아웃 [jwt인증 필요]
 ```
 /api/{version}/user/logout
 ```
@@ -112,7 +112,7 @@ Authorization: Bearer <access_token>
 ```
 
 ### 플레이리스트
-#### [GET] Playlist 목록
+#### [GET] Playlist 목록 [jwt인증 필요]
 *플레이 리스트 페이지에서 로그인한 유저에 대한 목록을 뿌려줌*
 ```
 /api/{version}/playlist?{page, page_count}
@@ -135,7 +135,7 @@ Authorization: Bearer <access_token>
   "status": 200
 }
 ```
-#### [POST] Playlist 등록/수정
+#### [POST] Playlist 등록/수정 [jwt인증 필요]
 *플레이리스트에 대한 수정사항 요청*
 ```
 /api/{version}/playlist
@@ -150,7 +150,7 @@ Authorization: Bearer <access_token>
 "message" : "success"
 }
 ```
-#### [DELETE] Playlist 삭제
+#### [DELETE] Playlist 삭제 [jwt인증 필요]
 *플레이리스트에 대한 삭제 요청*
 ```
 /api/{version}/playlist
@@ -166,7 +166,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-#### [POST] Playlist에 곡 추가
+#### [POST] Playlist에 곡 추가 [jwt인증 필요]
 *플레이리스트에 곡을 추가*
 ```
 /api/{version}/playlist/{id}
@@ -182,7 +182,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-#### [DELETE] Playlist에서 곡 삭제
+#### [DELETE] Playlist에서 곡 삭제 [jwt인증 필요]
 *플레이리스트에 곡을 삭제*
 ```
 /api/{version}/playlist/{id}
@@ -198,7 +198,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-#### [GET] Playlist 곡 보기
+#### [GET] Playlist 곡 보기 [jwt인증 필요]
 *플레이리스트 목록에서 하나의 플레이리스트에 대한 곡 정보 요청*
 ```
 /api/{version}/playlist/{id}
@@ -235,7 +235,7 @@ Authorization: Bearer <access_token>
 ```
 
 ### 재생목록
-#### [GET] 재생 목록 보기
+#### [GET] 재생 목록 보기 [jwt인증 필요]
 *재생 목록*
 ```
 /api/{version}/played
@@ -268,7 +268,7 @@ Authorization: Bearer <access_token>
          }
 }
 ```
-#### [POST] 재생 목록에 playlist 음악 추가 
+#### [POST] 재생 목록에 playlist 음악 추가 [jwt인증 필요]
 *플레이리스트의 음악 리스트를 재생 목록에 추가*
 ```
 /api/{version}/played/playlist
@@ -281,7 +281,7 @@ Authorization: Bearer <access_token>
 "message": "success"
 }
 ```
-#### [POST] 재생 목록에 음악 추가
+#### [POST] 재생 목록에 음악 추가 [jwt인증 필요]
 *플레이리스트의 음악 리스트를 재생 목록에 추가*
 ```
 /api/{version}/played/song
@@ -294,7 +294,7 @@ Authorization: Bearer <access_token>
 "message": "success"
 }
 ```
-#### [DELETE] 재생목록에서 곡 삭제
+#### [DELETE] 재생목록에서 곡 삭제 [jwt인증 필요]
 *재생목록에서 선택된 곡 삭제*
 ```
 /api/{version}/played
@@ -316,6 +316,7 @@ Authorization: Bearer <access_token>
 /api/{version}/song/{id}
 ```
 * pid:음악 상세 정보를 요청할 pid, int
+* 로그인 여부에 따라 1분 미리듣기 또는 전곡 듣기
 
 * Return value
 ```
@@ -334,7 +335,7 @@ Authorization: Bearer <access_token>
   "status": 200
 }
 ```
-#### [GET] 음악 재생
+#### [GET] 음악 재생 [jwt인증 필요]
 *음악 재생 버튼 클릭 시 로깅*
 ```
 /api/{version}/song/{id}/play
@@ -348,7 +349,7 @@ Authorization: Bearer <access_token>
 "message" : "success"
 }
 ```
-#### [GET] 음악 중지
+#### [GET] 음악 중지 [jwt인증 필요]
 *음악 정지 버튼 클릭 시 로깅*
 ```
 /api/{version}/song/{id}/stop
@@ -362,7 +363,7 @@ Authorization: Bearer <access_token>
 "message" : "success"
 }
 ```
-#### [GET] 음악 재시작
+#### [GET] 음악 재시작 [jwt인증 필요]
 *음악 재시작 버튼 클릭 시 로깅*
 ```
 /api/{version}/song/{id}/restart
@@ -376,7 +377,7 @@ Authorization: Bearer <access_token>
 "message" : "success"
 }
 ```
-#### [GET] 음악 재생 완료
+#### [GET] 음악 재생 완료 [jwt인증 필요]
 *음악 재생 완료 시 로깅*
 ```
 /api/{version}/song/{id}/end
@@ -459,6 +460,33 @@ search_type = artist
 
 
 ### 프로필
+#### [GET] 자신 프로필 [jwt인증 필요]
+*개인 프로필 조회에 따른 데이터 요청*
+```
+/api/{version}/profile/info/{id}
+```
+* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
+
+* Return value
+```
+private(자신)
+{
+    "data": {
+        "bio": "test",
+        "creator_id": 1,
+        "data": "test",
+        "id": 1,
+        "name": "test",
+        "points": 0,
+        "rank": 0,
+        "song_cnt": 5,
+        "sponsor_cnt": 2,
+        "support_cnt": 2,
+        "user_img": "test"
+    },
+    "status": 200
+}
+```
 #### [GET] 개인 프로필
 *개인 프로필 조회에 따른 데이터 요청*
 ```
@@ -672,7 +700,7 @@ imo유저 + 타인의 프로필
   "status": 200
 }
 ```
-#### [GET]내가 후원한 목록
+#### [GET]내가 후원한 목록 [jwt인증 필요]
 *개인 프로필 조회에 따른 개인 후원 목록 요청*
 *개인 프로필 또는 아티스트 프로필 조회에서 얻은 user_id값을 이용하여 호출한다.*
 ```
@@ -697,7 +725,7 @@ imo유저 + 타인의 프로필
   "status": 200
 }
 ```
-#### [GET]개인 포인트 목록 요청
+#### [GET]개인 포인트 목록 요청 [jwt인증 필요]
 *개인 포인트 사용 목록 요청*
 *개인 프로필 또는 아티스트 프로필 조회에서 얻은 user_id값을 이용하여 호출한다.*
 ```
@@ -730,7 +758,7 @@ imo유저 + 타인의 프로필
   "status": 200
 }
 ```
-#### [PUT]포인트 후원
+#### [PUT]포인트 후원 [jwt인증 필요]
 *개인 포인트 후원에 따른 후원*
 ```
 /api/{version}/support/{creator_id}
@@ -833,7 +861,7 @@ imo유저 + 타인의 프로필
 }
 ```
 ### 작품
-#### [POST]작품 올리기
+#### [POST]작품 올리기 [jwt인증 필요]
 *자신의 작품 올리기*
 ```
 /api/{version}/song
@@ -847,7 +875,7 @@ imo유저 + 타인의 프로필
 }
 ```
 ### 창작자
-#### [POST]창작자 등록
+#### [POST]창작자 등록 [jwt인증 필요]
 *창작자 등록 하기*
 ```
 /api/{version}/creator
