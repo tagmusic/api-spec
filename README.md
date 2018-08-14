@@ -42,7 +42,7 @@ Authorization: Bearer <access_token>
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
-{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img", "profile_img"}}
+{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img":"profile_img"}}
 ```
 *app_id와 app_token은 login시에 정상적인 app을 통한것인지 확인하기 위해 사용. 
 *app_id는 json, app_token은 request header에 **Authorization: Bearer <app_token>** 주의
