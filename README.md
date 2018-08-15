@@ -38,14 +38,14 @@ Authorization: Bearer <access_token>
 {"status":401, "message":"Missing Authorization Header"}
 ```
 
-### [POST] 로그인 [jwt인증 필요]
+### [POST] 로그인 
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
 {"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img":"profile_img"}}
 ```
-*app_id와 app_token은 login시에 정상적인 app을 통한것인지 확인하기 위해 사용. 
-*app_id는 json, app_token은 request header에 **Authorization: Bearer <app_token>** 주의
+
+*app_id :  발급받은 인증 키값
 *provider : login platform 제공자 명 (필수)
 *id : login platform 접근 token value (필수)
 *data : 해당 user 관련 property data json value
@@ -461,12 +461,10 @@ search_type = artist
 
 ### 프로필
 #### [GET] 자신 프로필 [jwt인증 필요]
-*개인 프로필 조회에 따른 데이터 요청*
+*개인(자신) 프로필 조회에 따른 데이터 요청*
 ```
-/api/{version}/profile/info/{id}
+/api/{version}/profile/my
 ```
-* id : 서버의 저장된 아이디와 해당 파라미터가 동일할 경우 나의 프로필, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다, int
-
 * Return value
 ```
 private(자신)
@@ -666,10 +664,11 @@ imo유저 + 타인의 프로필
   "data": {
     "sponsor_list": [
       {
-        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
-        "name": "test", 
-        "points": 10, 
-        "user_id": 1
+                "created_at": "Wed, 18 Jul 2018 14:24:35 GMT",
+                "name": "test",
+                "points": 10,
+                "user_id": 1,
+                "user_img": "test"
       }
     ]
   }, 
@@ -690,10 +689,11 @@ imo유저 + 타인의 프로필
   "data": {
     "sponsor_list": [
       {
-        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
-        "name": "test", 
-        "points": 10, 
-        "user_id": 1
+                "created_at": "Tue, 17 Jul 2018 14:46:35 GMT",
+                "name": "test",
+                "points": 10,
+                "user_id": 1,
+                "user_img": "test"
       }
     ]
   }, 
@@ -717,7 +717,33 @@ imo유저 + 타인의 프로필
       {
         "artist_id": 1, 
         "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
-        "name": "test", 
+        "name": "test",
+        "user_img": "test",
+        "points": 10
+      }
+    ]
+  }, 
+  "status": 200
+}
+```
+#### [GET] 아티스트가 후원한 목록
+*아티스트 프로필 조회에 따른 아티스트 후원 목록 요청*
+```
+/api/{version}/profile/artist/support/{artist_id}
+```
+* artist_id : 해당 id로 user_id를 찾아 user_id와 현재 나의 id가 같을 경우 나의 후원 목록을, 그외의 경우 타인의 프로필에 해당하는 값을 가져온다. (현재는 자신만이 가져 올 수 있음), int
+* id가 현재 유저의 아이디와 다를경우 호출시 json value로 에러 데이터를 반환한다.
+
+* Return value
+```
+{
+  "data": {
+    "support_list": [
+      {
+        "artist_id": 1, 
+        "created_at": "Tue, 17 Jul 2018 14:46:35 GMT", 
+        "name": "test",
+        "user_img": "test",
         "points": 10
       }
     ]
