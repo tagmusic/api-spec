@@ -917,3 +917,28 @@ imo유저 + 타인의 프로필
 }
 ```
 
+### 약관
+#### [GET]이용약관 조회
+*이용 약관 조회하기*
+```
+/api/{version}/term/{term}
+```
+```
+term : 약관 종류 번호, int
+*이용약관 0
+*유료서비스 약관 1
+*개인정보 수집 약관 2
+*이벤트서비스 안내 수신 3
+
+* Return value
+```
+{
+"status" : 200,
+"data" : {
+     "pid" : 1,
+     "title" : "test",
+     "content" : "testtest"
+     "created_id" : 1,
+     "term" : 0
+}
+```
