@@ -893,6 +893,7 @@ imo유저 + 타인의 프로필
 /api/{version}/song
 {"title":"aaa", "file":"aaa.mp3", "cover":"bbb.jpg", "desc":"really Good Soung"}
 ```
+* title, file, cover 필수 값
 * Return value
 ```
 {
@@ -905,10 +906,11 @@ imo유저 + 타인의 프로필
 *창작자 등록 하기*
 ```
 /api/{version}/creator
-{"title":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
+{"name":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
  "provider":"facebook", "sns_id" : "asdiop", "hompage" :"aaa.com", "belongto":"aaa"
 }
 ```
+* name, gender, bio, birth, phone, email, provider, sns_id 필수 값 
 * Return value
 ```
 {
