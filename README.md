@@ -42,12 +42,12 @@ Authorization: Bearer <access_token>
 *APP에서 소셜 로그인후 provider가 제공하는 유저정보를 POST_DATA넘김*
 ```
 /api/{version}/user/login
-{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img":"profile_img"}}
+{"app_id": "tagmusic_app_id", "provider": "twitter", "id": "id-in-provider-we-use-this-as-user-indentity", "data": {"name":"aaa", "bio":"user_description", "user_img":"profile_img", "access_token":"abd29ejdksj39fikd"}}
 ```
 
 *app_id :  발급받은 인증 키값
 *provider : login platform 제공자 명 (필수)
-*id : login platform 접근 token value (필수)
+*id : login platform 접근 id value (필수)
 *data : 해당 user 관련 property data json value
 
 * Return value
