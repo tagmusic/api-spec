@@ -210,7 +210,8 @@ Authorization: Bearer <access_token>
 {"status": 200, 
  "data": {
             "count":30,
-            "song_list":[{                
+            "song_list":[{ 
+                  "order_no" : 1,
                   "album": "Melodyphony (2010)",
                   "artist": "Joe Hisaishi",
                   "artist_id": 1,
@@ -219,6 +220,7 @@ Authorization: Bearer <access_token>
                   "song_id": 231,
                   "title": "Kiki's Delivery Service"
                }, {
+                "order_no" : 2,
                 "album": "Starlight Theater",
                 "artist": "Starlight Kuku Gumi",
                 "artist_id": null,
@@ -247,6 +249,7 @@ Authorization: Bearer <access_token>
  "data": {
             "count":30,
             "song_list":[{
+                "order_no" : 1,
                 "album": null,
                 "artist": null,
                 "artist_id": 1,
@@ -255,6 +258,7 @@ Authorization: Bearer <access_token>
                 "song_id": 1,
                 "title": "Fade - Alan Walker.mp3"
                            }, {
+                "order_no" : 2,
                 "album": "古筝古琴十大金曲01",
                 "artist": "",
                 "artist_id": null,
@@ -423,6 +427,9 @@ search_type = song
             "filepath": "countries/CHINA/201605 이전/Fade - Alan Walker.mp3",
             "song_id": 1,
             "title": "Fade - Alan Walker.mp3"
+            "genre_name": "test",
+            "imo": 1,
+            "updated_at": "2018-01-01" 
         },
         {
             "album": "Howl's Moving Castle (2004)",
@@ -432,6 +439,9 @@ search_type = song
             "filepath": "countries/Joe Hisaishi/Soundtrack/Joe Hisaishi - Howl's Moving Castle (2004)/21. Joe Hisaishi - Family.mp3",
             "song_id": 494,
             "title": "Family"
+            "genre_name": "test",
+            "imo": 1,
+            "updated_at": "2018-01-01"
         }
   ], 
   "status": 200
@@ -907,7 +917,7 @@ imo유저 + 타인의 프로필
 ```
 /api/{version}/creator
 {"name":"aaa", "gender":0, "bio":"gexekjdlksjdkl", "birth" : "20101010", "phone":"01055555555", "email":"test@test.com",
- "provider":"facebook", "sns_id" : "asdiop", "hompage" :"aaa.com", "belongto":"aaa"
+ "provider":"facebook", "sns_id" : "asdiop", "homepage" :"aaa.com", "belongto":"aaa"
 }
 ```
 * name, gender, bio, birth, phone, email, provider, sns_id 필수 값 
