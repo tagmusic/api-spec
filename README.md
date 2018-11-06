@@ -182,7 +182,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-#### [DELETE] Playlist에서 곡 삭제 [jwt인증 필요]
+#### [PUT] Playlist에서 곡 삭제 [jwt인증 필요]
 *플레이리스트에 곡을 삭제*
 ```
 /api/{version}/playlist/{id}
@@ -298,7 +298,7 @@ Authorization: Bearer <access_token>
 "message": "success"
 }
 ```
-#### [DELETE] 재생목록에서 곡 삭제 [jwt인증 필요]
+#### [PUT] 재생목록에서 곡 삭제 [jwt인증 필요]
 *재생목록에서 선택된 곡 삭제*
 ```
 /api/{version}/played
